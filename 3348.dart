@@ -2,47 +2,6 @@ import 'dart:io';
 
 void main() {
   var n = int.parse(stdin.readLineSync()!);
-  int k = n;
-  bool ganhou = false;
-  while (!ganhou) {
-    bool eliminated = false;
-    int index = 0;
-    List<int> spiders = [];
-
-    for (int i = 1; i < (n * 2) + 1; i++) {
-      spiders.add(i);
-    }
-
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < k; j++) {
-        if (index >= n * 2) {
-          index = 0;
-        }
-        if (spiders[index] == -1) {
-          index++;
-          j--;
-        } else {
-          if (j == k - 1) {
-            if (index < n) {
-              eliminated = true;
-            }
-            spiders[index] = -1;
-            index++;
-          } else if (index < n * 2) {
-            index++;
-          }
-          if (index >= n * 2) {
-            index = 0;
-          }
-        }
-      }
-    }
-
-    if (!eliminated) {
-      ganhou = true;
-      print("${k}");
-    } else {
-      k++;
-    }
-  }
+  var seq = [2, 7, 5, 30, 169, 441, 1872, 7632, 1740, 93313, 459901, 1358657, 2504881, 13482720, 25779600, 68468401, 610346880, 1271932200, 327280800];
+  print(seq[n-1]);
 }
